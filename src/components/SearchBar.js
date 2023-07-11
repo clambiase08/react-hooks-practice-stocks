@@ -1,6 +1,16 @@
 import React from "react";
 
-function SearchBar() {
+function SearchBar({setSortStocks, sortStocks, onChangeType}) {
+
+  function handleChange(e) {
+    onChangeType(e.target.value)
+  }
+
+function handleSort(e) {
+  const selectedSort = e.target.value
+  setSortStocks(selectedSort)
+}
+
   return (
     <div>
       <strong>Sort by:</strong>
@@ -9,8 +19,8 @@ function SearchBar() {
           type="radio"
           value="Alphabetically"
           name="sort"
-          checked={null}
-          onChange={null}
+          checked={sortStocks === "Alphabetically"}
+          onChange={handleSort}
         />
         Alphabetically
       </label>
@@ -19,15 +29,15 @@ function SearchBar() {
           type="radio"
           value="Price"
           name="sort"
-          checked={null}
-          onChange={null}
+          checked={sortStocks === "Price"}
+          onChange={handleSort}
         />
         Price
       </label>
       <br />
       <label>
         <strong>Filter:</strong>
-        <select onChange={null}>
+        <select onChange={handleChange}>
           <option value="Tech">Tech</option>
           <option value="Sportswear">Sportswear</option>
           <option value="Finance">Finance</option>

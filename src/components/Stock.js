@@ -1,9 +1,9 @@
 import React from "react";
 
-function Stock({stock, addStockPortfolio}) {
+function Stock({stock, handleStockChange}) {
 
   function handleClick() {
-    addStockPortfolio(stock)
+    handleStockChange(stock)
   }
   return (
     <div>

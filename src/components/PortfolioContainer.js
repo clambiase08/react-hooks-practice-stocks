@@ -1,10 +1,10 @@
 import React from "react";
 import Stock from "./Stock";
 
-function PortfolioContainer({portfolio}) {
+function PortfolioContainer({portfolio, removeStockPortfolio}) {
 
   const portfolioStocks = portfolio.map((stock) => {
-    return <Stock key={stock.id} stock={stock}/>
+    return <Stock key={stock.id} stock={stock} handleStockChange={removeStockPortfolio}/>
   })
 
   return (
